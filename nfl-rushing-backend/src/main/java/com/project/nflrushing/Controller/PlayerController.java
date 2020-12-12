@@ -21,11 +21,10 @@ public class PlayerController {
   public PlayerResponse getPlayerDetails(
     @RequestParam (value = "offset") Integer offset,
     @RequestParam (value = "limit") Integer limit,
-    @RequestParam (value = "orderBy") String orderBy,
-    @RequestParam (value = "sortBy") String sortBy
+    @RequestParam (value = "sortOrder") String sortOrder,
+    @RequestParam (value = "sortByField") String sortByField
   ) throws IOException {
 
-
-     return playerService.getPlayers(offset,limit,orderBy,sortBy);
+     return playerService.getPlayers(offset,limit,sortOrder,sortByField);
   }
 }

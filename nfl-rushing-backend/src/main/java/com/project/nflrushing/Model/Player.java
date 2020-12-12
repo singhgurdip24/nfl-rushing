@@ -22,39 +22,39 @@ public class Player {
   private String pos;
 
   @JsonProperty("Att")
-  private String att;
+  private Integer att;
 
   @JsonProperty("Att/G")
-  private String attPerG;
+  private Double attPerG;
 
   @JsonProperty("Yds")
-  private String yds;
+  private Integer yds;
 
   @JsonProperty("Avg")
-  private String avg;
+  private Double avg;
 
   @JsonProperty("Yds/G")
-  private String ydsPerG;
+  private Double ydsPerG;
 
   @JsonProperty("TD")
-  private String td;
+  private Integer td;
 
   @JsonProperty("Lng")
   private String lng;
 
   @JsonProperty("1st")
-  private String first;
+  private Integer first;
 
   @JsonProperty("1st%")
-  private String firstPercentage;
+  private Double firstPercentage;
 
   @JsonProperty("20+")
-  private String twentyPlus;
+  private Integer twentyPlus;
 
   @JsonProperty("40+")
-  private String fortyPlus;
+  private Integer fortyPlus;
 
   @JsonProperty("FUM")
-  private String fumbles;
+  private Integer fumbles;
 
 }
