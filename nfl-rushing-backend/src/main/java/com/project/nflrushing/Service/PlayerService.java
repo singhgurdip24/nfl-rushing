@@ -31,13 +31,13 @@ public class PlayerService {
     System.out.println("sortByField:" + sortByField);
     switch (sortByField){
       case "yds":
-        playerList = sortPlayerListByYds(playerList);
+        playerList = sortPlayerListByYds(playerList,sortOrder);
         break;
       case "lng":
-        playerList = sortPlayerListByLng(playerList);
+        playerList = sortPlayerListByLng(playerList,sortOrder);
         break;
       case "td":
-        playerList = sortPlayerListByTd(playerList);
+        playerList = sortPlayerListByTd(playerList,sortOrder);
         break;
       default:
         //do nothing
@@ -52,13 +52,20 @@ public class PlayerService {
     return playerResponse;
   }
 
-  private List<Player> sortPlayerListByTd(List<Player> playerList) {
-    return playerList
-      .stream()
-      .sorted(Comparator.comparing(Player::getTd)).collect(Collectors.toList());
+  private List<Player> sortPlayerListByTd(List<Player> playerList, String sortOrder) {
+
+    if(sortOrder.equals("DESC")) {
+      return playerList
+        .stream()
+        .sorted(Comparator.comparing(Player::getTd).reversed()).collect(Collectors.toList());
+    } else {
+      return playerList
+        .stream()
+        .sorted(Comparator.comparing(Player::getTd)).collect(Collectors.toList());
+    }
   }
 
-  private List<Player> sortPlayerListByLng(List<Player> playerList) {
+  private List<Player> sortPlayerListByLng(List<Player> playerList, String sortOrder) {
     return playerList
       .stream()
       .sorted((p1,p2) -> {
@@ -67,7 +74,7 @@ public class PlayerService {
 
        Integer p1LngInt;
        Integer p2LngInt;
-       
+
        if(p1Lng.charAt(p1Lng.length()-1) == 'T') {
          p1LngInt = Integer.parseInt(p1Lng.substring(0,p1Lng.length()-1));
        } else {
@@ -80,15 +87,26 @@ public class PlayerService {
           p2LngInt = Integer.parseInt(p2Lng);
         }
 
-        return p1LngInt-p2LngInt;
+        if(sortOrder.equals("DESC")) {
+          return p2LngInt-p1LngInt;
+        } else {
+          return p1LngInt-p2LngInt;
+        }
 
       }).collect(Collectors.toList());
   }
 
-  private List<Player> sortPlayerListByYds(List<Player> playerList) {
-   return playerList
-     .stream()
-     .sorted(Comparator.comparing(Player::getYds)).collect(Collectors.toList());
+  private List<Player> sortPlayerListByYds(List<Player> playerList, String sortOrder) {
+
+    if(sortOrder.equals("DESC")) {
+      return playerList
+        .stream()
+        .sorted(Comparator.comparing(Player::getYds).reversed()).collect(Collectors.toList());
+    } else {
+        return playerList
+          .stream()
+          .sorted(Comparator.comparing(Player::getYds)).collect(Collectors.toList());
+    }
   }
 
 
