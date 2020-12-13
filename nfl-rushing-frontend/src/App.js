@@ -4,10 +4,10 @@ import ReactTable from "react-table-6";
 import "react-table-6/react-table.css";
 import axios from "axios";
 import { API_BASE_URL, COLUMN_NAME } from './constants/index';
-import {AppBar,Toolbar,Typography,Button,Grid} from '@material-ui/core';
+import { CSVLink } from "react-csv";
+import { Navbar,Button } from "react-bootstrap";
 
 const requestData = async (pageSize, page, sorted, filterable) => {
-  console.log(filterable[0]?.value);
   const data = await axios.get(
     `${API_BASE_URL}/details?offset=${page}`+
     `&limit=${pageSize}&sortOrder=${sorted[0]?.desc ? 'DESC' : 'ASC'}`+
@@ -27,11 +27,12 @@ class App extends React.Component {
     this.state = {
       data: [],
       pages: null,
-      loading: true
+      loading: true,
+      dataToDownload: []
     };
     this.fetchData = this.fetchData.bind(this);
   }
-
+  
   fetchData(state, instance) {
     this.setState({ loading: true });
     requestData(
@@ -51,15 +52,18 @@ class App extends React.Component {
   render() {
     const { data, pages, loading } = this.state;
     return (
-      <div>
-        <AppBar position="static">
-          <Toolbar>
-            <Grid justify="space-between" container spacing={24}>
-              <Typography variant="h6" justify="center">NFL Rushing</Typography>
-              <Button color="inherit">Export CSV</Button>
-            </Grid>
-          </Toolbar>
-        </AppBar>
+      <div class="root-css">
+        <Navbar variant="dark" className="navbar-css">
+          <Navbar.Brand className="ml-auto font-weight-bold">NFL Rushing</Navbar.Brand>
+          <Button variant="light" className="ml-auto">
+            <CSVLink 
+            data={data}
+            filename = "player_details.csv"
+            >Export CSV
+            </CSVLink>
+          </Button>
+        </Navbar>
+        
         <ReactTable
           columns={COLUMN_NAME}
           manual // Forces table not to paginate or sort automatically, so we can handle it server-side
@@ -68,7 +72,7 @@ class App extends React.Component {
           loading={loading} // Display the loading overlay when we need it
           onFetchData={this.fetchData} // Request new data when things change
           defaultPageSize={10}
-          className="-striped -highlight"
+          className="react-table-css"
         />
       </div>
     );
