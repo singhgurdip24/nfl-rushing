@@ -16,19 +16,25 @@ import java.util.stream.Collectors;
 @Service
 public class PlayerService {
 
-  public PlayerResponse getPlayers(Integer offset, Integer limit, String sortOrder, String sortByField)
+  public PlayerResponse getPlayers(Integer offset, Integer limit, String sortOrder, String sortByField, String filterByPlayer)
     throws IOException {
 
     ObjectMapper objectMapper = new ObjectMapper();
 
     //read json file and convert to player object array
     List<Player> playerList = Arrays.asList(
-      objectMapper.readValue(ResourceUtils.getFile("classpath:rushing.json"), Player[].class)
+      objectMapper.readValue(ResourceUtils.getFile("classpath:rushing2.json"), Player[].class)
     );
+
+    if(filterByPlayer != null){
+      playerList = playerList
+        .stream()
+        .filter(player -> player.getPlayer().toLowerCase().contains(filterByPlayer.toLowerCase()))
+        .collect(Collectors.toList());
+    }
 
     Integer numberOfRecords = playerList.size();
 
-    System.out.println("sortByField:" + sortByField);
     switch (sortByField){
       case "yds":
         playerList = sortPlayerListByYds(playerList,sortOrder);
@@ -41,7 +47,6 @@ public class PlayerService {
         break;
       default:
         //do nothing
-
     }
 
     List<Player> subPlayerList = playerList.subList(
@@ -108,6 +113,5 @@ public class PlayerService {
           .sorted(Comparator.comparing(Player::getYds)).collect(Collectors.toList());
     }
   }
-
 
 }

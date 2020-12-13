@@ -28,7 +28,7 @@ public class Player {
   private Double attPerG;
 
   @JsonProperty("Yds")
-  private Integer yds;
+  private Double yds;
 
   @JsonProperty("Avg")
   private Double avg;
