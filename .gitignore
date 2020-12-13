@@ -36,3 +36,4 @@ build/
 nfl-rushing-backend/.mvn/
 nfl-rushing-backend/mvnw
 nfl-rushing-backend/mvnw.cmd
+nfl-rushing-frontend/.eslintcache

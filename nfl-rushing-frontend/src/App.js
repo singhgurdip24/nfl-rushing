@@ -1,9 +1,10 @@
 import React from "react";
 import './App.css';
-import ReactTable from "react-table";
-import "react-table/react-table.css";
+import ReactTable from "react-table-6";
+import "react-table-6/react-table.css";
 import axios from "axios";
 import { API_BASE_URL, COLUMN_NAME } from './constants/index';
+import {AppBar,Toolbar,Typography,Button,Grid} from '@material-ui/core';
 
 const requestData = async (pageSize, page, sorted, filterable) => {
   console.log(filterable[0]?.value);
@@ -51,6 +52,14 @@ class App extends React.Component {
     const { data, pages, loading } = this.state;
     return (
       <div>
+        <AppBar position="static">
+          <Toolbar>
+            <Grid justify="space-between" container spacing={24}>
+              <Typography variant="h6" justify="center">NFL Rushing</Typography>
+              <Button color="inherit">Export CSV</Button>
+            </Grid>
+          </Toolbar>
+        </AppBar>
         <ReactTable
           columns={COLUMN_NAME}
           manual // Forces table not to paginate or sort automatically, so we can handle it server-side
