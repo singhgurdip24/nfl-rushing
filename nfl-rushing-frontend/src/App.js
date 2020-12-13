@@ -3,7 +3,7 @@ import './App.css';
 import ReactTable from "react-table-6";
 import "react-table-6/react-table.css";
 import axios from "axios";
-import { API_BASE_URL, COLUMN_NAME } from './constants/index';
+import { API_BASE_URL, COLUMN_NAME, CSV_HEADERS } from './constants/index';
 import { CSVLink } from "react-csv";
 import { Navbar,Button } from "react-bootstrap";
 
@@ -58,12 +58,12 @@ class App extends React.Component {
           <Button variant="light" className="ml-auto">
             <CSVLink 
             data={data}
+            headers={CSV_HEADERS}
             filename = "player_details.csv"
             >Export CSV
             </CSVLink>
           </Button>
         </Navbar>
-        
         <ReactTable
           columns={COLUMN_NAME}
           manual // Forces table not to paginate or sort automatically, so we can handle it server-side

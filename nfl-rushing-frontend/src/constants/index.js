@@ -8,18 +8,6 @@ export const COLUMN_NAME = [
       filterable: true
     },
     {
-      Header: "Yards",
-      accessor: "Yds"
-    },
-    {
-      Header: "Longest Rush",
-      accessor: "Lng"
-    },
-    {
-      Header: "TouchDowns",
-      accessor: "TD"
-    },
-    {
       Header: "Team",
       accessor: "Team",
       id: "Team",
@@ -41,37 +29,112 @@ export const COLUMN_NAME = [
       sortable: false
     },
     {
-      Header: "Average",
+      Header: "Total Rushing Yards",
+      accessor: "Yds"
+    },
+    {
+      Header: "Rushing Average Yards/Attempt",
       accessor: "Avg",
       sortable: false
     },
     {
-      Header: "Yards/Game",
+      Header: "Rushing Yards/Game",
       accessor: "Yds/G",
       sortable: false
     },
     {
-      Header: "First",
+      Header: "Total Rushing TouchDowns",
+      accessor: "TD"
+    },
+    {
+      Header: "Longest Rush",
+      accessor: "Lng"
+    },
+    {
+      Header: "Rushing First Downs",
       accessor: "1st",
       sortable: false
     },
     {
-      Header: "First Percentage",
+      Header: "Rushing First Down Percentage",
       accessor: "1st%",
       sortable: false
     },
     {
-      Header: "Twenty",
+      Header: "Rushing 20+ Yards Each",
       accessor: "20+",
       sortable: false
     },
     {
-      Header: "Forty",
+      Header: "Rushing 40+ Yards Each",
       accessor: "40+",
       sortable: false
     },
     {
-      Header: "FUM",
+      Header: "Rushing Fumbles",
       accessor: "FUM"
     }
 ];
+
+export const CSV_HEADERS = [
+  {
+    label: "Player",
+    key: "Player"
+  },
+  {
+    label: "Team",
+    key: "Team"
+  },
+  {
+    label: "Position",
+    key: "Pos"
+  },
+  {
+    label: "Rushing Attempts/Game Avg",
+    key: "Att/G"
+  },
+  {
+    label: "Rushing Attempts",
+    key: "Att"
+  },
+  {
+    label: "Total Rushing Yards",
+    key: "Yds"
+  },
+  {
+    label: "Rushing Average Yards/Attempt",
+    key: "Avg"
+  },
+  {
+    label: "Rushing Yards/Game",
+    key: "Yds/G"
+  },
+  {
+    label: "Total Rushing TouchDowns",
+    key: "TD"
+  },
+  {
+    label: "Longest Rush",
+    key: "Lng"
+  },
+  {
+    label: "Rushing First Downs",
+    key: "1st"
+  },
+  {
+    label: "Rushing First Down Percentage",
+    key: "1st%"
+  },
+  {
+    label: "Rushing 20+ Yards Each",
+    key: "20+"
+  },
+  {
+    label: "Rushing 40+ Yards Each",
+    key: "40+"
+  },
+  {
+    label: "Rushing Fumbles",
+    key: "FUM"
+  }
+]
