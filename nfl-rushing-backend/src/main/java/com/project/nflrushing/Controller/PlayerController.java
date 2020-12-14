@@ -12,14 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
 import java.util.List;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class PlayerController {
 
   @Autowired
   private PlayerService playerService;
 
-  @GetMapping("/details")
+  @GetMapping("/api/details")
   public PlayerResponse getPlayerDetails(
     @RequestParam (value = "offset") Integer offset,
     @RequestParam (value = "limit") Integer limit,

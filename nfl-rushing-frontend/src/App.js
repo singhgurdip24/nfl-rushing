@@ -8,6 +8,7 @@ import { CSVLink } from "react-csv";
 import { Navbar,Button } from "react-bootstrap";
 
 const requestData = async (pageSize, page, sorted, filterable) => {
+
   const data = await axios.get(
     `${API_BASE_URL}/details?offset=${page}`+
     `&limit=${pageSize}&sortOrder=${sorted[0]?.desc ? 'DESC' : 'ASC'}`+
