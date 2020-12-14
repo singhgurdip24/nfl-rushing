@@ -22,7 +22,7 @@ public class PlayerService {
 
     //read json file and convert to player object array
     List<Player> playerList = Arrays.asList(
-      objectMapper.readValue(ResourceUtils.getFile("classpath:rushing2.json"), Player[].class)
+      objectMapper.readValue(ResourceUtils.getFile("classpath:rushing.json"), Player[].class)
     );
 
     if(filterByPlayer != null){

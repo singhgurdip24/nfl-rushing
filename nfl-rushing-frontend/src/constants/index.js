@@ -8,6 +8,18 @@ export const COLUMN_NAME = [
       filterable: true
     },
     {
+      Header: "Total Rushing TouchDowns",
+      accessor: "TD"
+    },
+    {
+      Header: "Longest Rush",
+      accessor: "Lng"
+    },
+    {
+      Header: "Total Rushing Yards",
+      accessor: "Yds"
+    },
+    {
       Header: "Team",
       accessor: "Team",
       id: "Team",
@@ -29,10 +41,6 @@ export const COLUMN_NAME = [
       sortable: false
     },
     {
-      Header: "Total Rushing Yards",
-      accessor: "Yds"
-    },
-    {
       Header: "Rushing Average Yards/Attempt",
       accessor: "Avg",
       sortable: false
@@ -41,14 +49,6 @@ export const COLUMN_NAME = [
       Header: "Rushing Yards/Game",
       accessor: "Yds/G",
       sortable: false
-    },
-    {
-      Header: "Total Rushing TouchDowns",
-      accessor: "TD"
-    },
-    {
-      Header: "Longest Rush",
-      accessor: "Lng"
     },
     {
       Header: "Rushing First Downs",

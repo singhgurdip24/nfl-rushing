@@ -28,7 +28,6 @@ public class PlayerController {
     @RequestParam (value = "filterByPlayer", required = false) String filterByPlayer
   ) throws IOException {
 
-     System.out.println(sortByField);
      return playerService.getPlayers(offset,limit,sortOrder,sortByField, filterByPlayer);
   }
 }
