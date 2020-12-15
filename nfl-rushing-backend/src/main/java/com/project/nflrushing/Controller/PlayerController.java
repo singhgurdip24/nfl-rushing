@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
 import java.util.List;
 
+//@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class PlayerController {
 
