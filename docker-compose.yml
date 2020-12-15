@@ -21,7 +21,7 @@ services:
       context: nfl-rushing-frontend
       dockerfile: Dockerfile
     ports:
-      - "80:80" # Map the exposed port 80 on the container to port 3000 on the host machine
+      - "80:80" # Map the exposed port 80 on the container to port 80 on the host machine
     restart: always
     depends_on:
       - app-server

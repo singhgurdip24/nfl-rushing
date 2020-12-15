@@ -25,6 +25,7 @@ public class PlayerService {
       objectMapper.readValue(ResourceUtils.getFile("classpath:rushing.json"), Player[].class)
     );
 
+    // filter the playerlist based on filter string
     if(filterByPlayer != null){
       playerList = playerList
         .stream()
@@ -32,8 +33,11 @@ public class PlayerService {
         .collect(Collectors.toList());
     }
 
+    // number of records to be returned
+    // used to determine number of pages
     Integer numberOfRecords = playerList.size();
 
+    //calls the sort function based on field in the request
     switch (sortByField){
       case "yds":
         playerList = sortPlayerListByYds(playerList,sortOrder);
@@ -48,6 +52,7 @@ public class PlayerService {
         //do nothing
     }
 
+    //player list to be returned for current page
     List<Player> subPlayerList = playerList.subList(
       Math.min(playerList.size(), offset),
       Math.min(playerList.size(), offset + limit));
@@ -79,6 +84,7 @@ public class PlayerService {
        Integer p1LngInt;
        Integer p2LngInt;
 
+       // handle T character length
        if(p1Lng.charAt(p1Lng.length()-1) == 'T') {
          p1LngInt = Integer.parseInt(p1Lng.substring(0,p1Lng.length()-1));
        } else {
@@ -91,6 +97,7 @@ public class PlayerService {
           p2LngInt = Integer.parseInt(p2Lng);
         }
 
+        //sort implementation
         if(sortOrder.equals("DESC")) {
           return p2LngInt-p1LngInt;
         } else {
