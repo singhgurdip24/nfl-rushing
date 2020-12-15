@@ -53,7 +53,7 @@ class App extends React.Component {
   render() {
     const { data, pages, loading } = this.state;
     return (
-      <div class="root-css">
+      <div className="root-css">
         <Navbar variant="dark" className="navbar-css">
           <Navbar.Brand className="ml-auto font-weight-bold">NFL Rushing</Navbar.Brand>
           <Button variant="light" className="ml-auto">
