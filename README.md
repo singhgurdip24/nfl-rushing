@@ -58,6 +58,14 @@ If you have any questions regarding requirements, do not hesitate to email your 
 # Pre-requisites :-
 1. Docker
 
+# Explanation of application architecture :-
+
+1. Backend: This application uses Spring Boot at the backend for the api. The reason for using the Spring Boot is because it is very easy to quickly design REST API using spring boot. It is also one of the most popular opinionated framework for Java application development.
+
+2. Front end: The front end is based on React. I have built a minimalistic design for the front end using the most reusable components.
+
+3. Database: Currently, I am not using any database and I the api is reading the data from the input file provided "rushing.json". However, the database can be added with very less time with spring boot.
+
 # Usage (Running the Application) :-
 1. Install the docker on your system if you haven't already.
 2. Clone the github repository.
