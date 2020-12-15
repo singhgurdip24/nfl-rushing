@@ -73,3 +73,9 @@ docker-compose up --build
 http://localhost/
 ```
 # Screenshots
+
+1. Front end screenshot:
+![alt text](https://github.com/singhgurdip24/nfl-rushing/blob/main/screenshots/Front%20end.png?raw=true)
+
+2. Spring application running:
+![alt text](https://github.com/singhgurdip24/nfl-rushing/blob/main/screenshots/Docker%20screenshot.png?raw=true)
