@@ -16,10 +16,6 @@ RUN npm install
 # Copy the main application
 COPY . ./
 
-# Arguments
-ARG NFL_APP_API_BASE_URL
-ENV NFL_APP_API_BASE_URL=S{NFL_APP_API_BASE_URL}
-
 # Build the application
 RUN npm run build
 
@@ -32,7 +28,7 @@ COPY --from=build /app/build /var/www
 # Copy our custom nginx config
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# Expose port 3000 to the Docker host, so we can access it 
+# Expose port 80 to the Docker host, so we can access it 
 # from the outside.
 EXPOSE 80
 
