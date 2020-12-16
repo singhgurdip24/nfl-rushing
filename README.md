@@ -64,7 +64,7 @@ If you have any questions regarding requirements, do not hesitate to email your 
 
 2. Front end: The front end is based on React. I have built a minimalistic design for the front end using the most reusable components.
 
-3. Database: Currently, I am not using any database and I the api is reading the data from the input file provided "rushing.json". However, the database can be added with very less time with spring boot.
+3. Database: Currently, I am not using any database and the api is reading the data from the input file provided "rushing.json". However, the database can be added with very less time with spring boot.
 
 # Usage (Running the Application) :-
 1. Install the docker on your system if you haven't already.
